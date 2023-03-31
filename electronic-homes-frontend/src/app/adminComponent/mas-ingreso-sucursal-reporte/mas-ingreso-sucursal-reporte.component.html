@@ -1,0 +1,35 @@
+<app-header-admin></app-header-admin>
+<body>
+  <label >Seleccione Sucusal</label>
+  <select  [(ngModel)]="codigoSucursal" (click)="cargarDatos()" >
+      <option value="central" >Central</option>
+      <option value="norte">norte</option>
+      <option value="sur">sur</option>
+  </select>
+    <div class="conteiner">
+        <div class="card-header">
+            <h2 class="h1 text-center">Top 5 productos con más ingresos por sucursal</h2>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th>Codigo Producto</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Ingreso Generado</th>
+                    <th></th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let registro of registroLista; let i= index">
+                    <td>{{registro.codigo_producto}}</td>
+                    <td> {{registro.nombre_producto}}</td>
+                    <td> {{registro.descripcion}}</td>
+                    <td> {{"Q."+registro.sum}} </td>
+                    <td>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>

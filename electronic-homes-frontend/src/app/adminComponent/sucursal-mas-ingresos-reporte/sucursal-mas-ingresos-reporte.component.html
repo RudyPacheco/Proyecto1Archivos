@@ -1,0 +1,22 @@
+<app-header-admin></app-header-admin>>
+<body>
+    <div class="conteiner">
+        <div class="card-header">
+            <h2 class="h1 text-center">Top 3 sucursales con más ingresos</h2>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th>Codigo Sucursal</th>
+                    <th>Ingresos generados</th>                  
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let registro of registroLista; let i= index">
+                    <td>{{registro.codigo_sucursal}}</td>
+                    <td> {{"Q."+registro.sum}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>

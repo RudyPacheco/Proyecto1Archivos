@@ -1,0 +1,31 @@
+<app-header-vendedor></app-header-vendedor>
+<body>
+    <div class="conteiner">
+        <div class="card-header">
+            <h2 class="h1 text-center">Clientes</h2>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th>NIT</th>                    
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>direccion</th>
+                    <th></th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cliente of ClienteLista; let i= index">
+                    <td>{{cliente.nit}}</td>
+                    <td>{{cliente.nombre}}</td>
+                    <td> {{cliente.apellido}} </td>
+                    <td> {{cliente.direccion}} </td>
+                    <td>
+                        <a  class="btn btn-danger" >Editar</a>
+                        
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>

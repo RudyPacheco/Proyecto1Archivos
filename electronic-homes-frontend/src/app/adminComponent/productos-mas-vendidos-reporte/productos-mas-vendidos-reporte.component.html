@@ -1,0 +1,29 @@
+<app-header-admin></app-header-admin>>
+<body>
+    <div class="conteiner">
+        <div class="card-header">
+            <h2 class="h1 text-center">Top 10 productos más vendidos</h2>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th>Codigo Producto</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Total veces vendidas</th>
+                    <th></th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let registro of registroLista; let i= index">
+                    <td>{{registro.codigo_producto}}</td>
+                    <td> {{registro.nombre_producto}}</td>
+                    <td> {{registro.descripcion}}</td>
+                    <td> {{registro.total}} </td>
+                    <td>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>

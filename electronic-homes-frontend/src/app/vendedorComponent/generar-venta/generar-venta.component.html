@@ -1,0 +1,73 @@
+<app-header-vendedor></app-header-vendedor>
+<head>
+	<title>Formulario de Registro</title>
+
+</head>
+<body>
+	<div class="container">
+			<h1>Generar Venta</h1>
+      <label >No : factura {{id_generado}}</label>      
+            <label >Seleccione Tipo de cliente</label>
+            <select  [(ngModel)]="tipoCliente" (click)="estadoCliente()" >
+                <option value="CF" >Consumidor Final</option>
+                <option value="NIT">NIT</option>
+            </select>
+            <label >NIT</label>
+			<input [disabled]="existe" type="text" [(ngModel)]="NIT"  placeholder="NIT" >
+      <button [disabled]="existe" type="submit"  (click)="validarCliente()"  >validar cliente</button>
+			<label >Nombres:</label>
+			<input [disabled]="existe" type="text" [(ngModel)]="nombre"  placeholder="Nombres">
+            <label >Apellidos:</label>
+			<input [disabled]="existe" type="text" [(ngModel)]="apellido"  placeholder="Apellidos">
+			<label >Direccion:</label>
+            <input [disabled]="existe"  [(ngModel)]="direccion" type="text"  placeholder="Direccion">
+
+		
+        <label >Seleccione el producto</label>
+            <select [(ngModel)]="codigo_producto"   >
+                <option  *ngFor="let producto of productoLista; let i=index " [value]="i" >{{ producto.codigo_producto+"-"+producto.nombre_producto+" Stock :"+producto.cantidad_producto}}</option>
+            </select>
+            <label >Cantidad</label>
+            <input [(ngModel)]="cantidadVenta" type="number"  placeholder="Cantidad">
+            <button type="submit" (click)="agregar()"  >Agregar Producto</button>
+            <button type="submit" (click)="generarVenta()" >Finalizar Venta</button>
+	</div>
+
+    <div class="conteiner">
+        <div class="card-header">
+            <h2 class="h1 text-center">Productos</h2>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Cantidad </th>
+                    <th>Precio</th>
+                    <th>Sub-Total</th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let producto of productoTabla; let i= index">
+                    <td>{{producto.codigo_producto}}</td>
+                    <td> {{producto.nombre_producto}}</td>
+                    <td> {{producto.cantidad_producto}}</td>
+                    <td> {{"Q." +producto.precio}} </td>
+                    <td> {{"Q." +(producto.precio*producto.cantidad_producto)}} </td>
+                    <td>
+                      <a  class="btn btn-danger" (click)="quitar(i)" >Quitar</a>
+                      
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>{{"Total : Q."+total_gastado}}</p>
+              <p>{{"Descuento : %."+descuento}}</p>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+

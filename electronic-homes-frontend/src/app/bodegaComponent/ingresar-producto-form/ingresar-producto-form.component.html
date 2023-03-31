@@ -1,0 +1,22 @@
+<app-header-bodega></app-header-bodega>
+<head>
+	<title>Formulario de Ingreso</title>
+
+</head>
+<body>
+	<div class="container">
+		<form [formGroup]="nuevoEmpForm" (ngSubmit)="ingresarProducto()" > 
+            <h1>Ingresar Producto</h1>
+            <label >Seleccione el producto</label>
+            <select formControlName="id_producto" >
+                <option *ngFor="let producto of productoLista " [value]="producto.id" >{{producto.codigo_producto+"-"+producto.nombre_producto}}</option>
+            </select>
+            <label >Cantidad</label>
+			<input type="number" formControlName="cantidad_producto" placeholder="Cantidad" >
+			<button type="submit" [disabled]="nuevoEmpForm.invalid" >Ingresar</button>
+		</form>
+	</div>
+</body>
+
+
+

@@ -1,0 +1,39 @@
+<app-header-admin></app-header-admin>
+
+<head>
+	<title>Formulario de Registro</title>
+
+</head>
+<body>
+	<div class="container">
+		<form [formGroup]="nuevoEmpForm" (ngSubmit)="generarEmpleado()" > 
+			<h1>Registro nuevo empleado</h1>
+            <select formControlName="areaEmpleado" (click)="generarID()" >
+                <option value="1" >Vendedor</option>
+                <option value="2">Inventario</option>
+                <option value="3">Bodega</option>
+                <option value="4">Administrador</option>
+            </select>
+            <label [(ngModel)]="IdEmpleado" > ID : {{IdEmpleado}}</label>
+			<label >Nombres:</label>
+			<input type="text" formControlName="nombreEmpleado" placeholder="Nombres">
+            <label >Apellidos:</label>
+			<input type="text" formControlName="apellidoEmpleado" placeholder="Apellidos">
+			<label >Contraseña:</label>
+            <input type="text" formControlName="passwordEmpleado" placeholder="Conrtaseña">
+			<label >Salario</label>
+			<input type="number" formControlName="salarioEmpleado" placeholder="Salario">
+            <label >Seleccione un area</label>
+          
+            <label >Seleccione una Sucursal</label>
+            <select formControlName="sucursalEmpleado">
+                <option value="central01">Central</option>
+                <option value="norte01">Norte</option>
+                <option value="sur01">Sur</option>
+            </select>
+			<button type="submit" [disabled]="nuevoEmpForm.invalid" >Registrarse</button>
+		</form>
+	</div>
+</body>
+
+

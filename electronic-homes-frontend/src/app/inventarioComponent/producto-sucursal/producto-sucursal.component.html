@@ -1,0 +1,32 @@
+<app-header-inventario></app-header-inventario>
+<body>
+
+    <div class="conteiner">
+        <div class="card-header">
+            <h2 class="h1 text-center">Productos</h2>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Cantidad stock</th>
+                    <th>Precio</th>
+                    <th></th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let producto of productoLista; let i= index">
+                    <td>{{producto.codigo_producto}}</td>
+                    <td> {{producto.nombre_producto}}</td>
+                    <td> {{producto.cantidad_producto}}</td>
+                    <td> {{"Q." +producto.precio}} </td>
+                    <td>
+                      <a  class="btn btn-danger" >Editar</a>
+                      
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>

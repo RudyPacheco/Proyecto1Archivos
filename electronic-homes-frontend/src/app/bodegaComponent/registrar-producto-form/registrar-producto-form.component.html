@@ -1,0 +1,24 @@
+<app-header-bodega></app-header-bodega>
+
+<head>
+	<title>Formulario de Registro</title>
+
+</head>
+<body>
+	<div class="container">
+		<form [formGroup]="nuevoEmpForm" (ngSubmit)="registrarProducto()" > 
+			<h1>Registro nuevo producto</h1>
+            <label >Codigo : {{IdGenerado}}</label>
+			<label >Nombre</label>
+			<input type="text" formControlName="nombreProducto" placeholder="Nombre">
+            <label >Descripcion</label>
+			<input type="text" formControlName="DespcripcionProducto" placeholder="Descripcion">
+			<label >Precio Q</label>
+            <input type="number" formControlName="precioProducto" placeholder="">
+			<label >Cantidad a ingresar</label>
+			<input type="number" formControlName="cantidadProducto" placeholder="">
+        	<button type="submit" [disabled]="nuevoEmpForm.invalid" >Registrar</button>
+		</form>
+	</div>
+</body>
+

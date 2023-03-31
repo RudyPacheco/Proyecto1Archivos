@@ -1,0 +1,32 @@
+<app-header-admin></app-header-admin>
+<body>
+    <button type="button" (click)="formulario()"  class="btn btn-success">Nuevo Empleado</button>
+    <div class="conteiner">
+        <div class="card-header">
+            <h2 class="h1 text-center">Empleados</h2>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>                    
+                    <th>Nombres</th>
+                    <th>Apellido</th>
+                    <th>Salario</th>
+                    <th>Sucursal</th>
+                    <th>Area</th>
+                    <th></th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let empleado of empleadosLista; let i= index">
+                    <td>{{empleado.id_empleado}}</td>
+                    <td>{{empleado.nombre}}</td>
+                    <td> {{empleado.apellido}} </td>
+                    <td> {{"Q." +empleado.salario}} </td>
+                    <td> {{empleado.codigo_sucursal}} </td>
+                    <td> {{empleado.codigo_area}} </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>

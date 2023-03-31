@@ -1,0 +1,26 @@
+<app-header-inventario></app-header-inventario>
+
+<head>
+	<title>Formulario de Ingreso</title>
+
+</head>
+<body>
+	<div class="container">
+		<form [formGroup]="nuevoEmpForm" (ngSubmit)="solicitarProducto()" > 
+            <h1>Solicitar Producto</h1>
+            <label >Seleccione la sucursal o bodega</label>
+            <select formControlName="sucursalOrigen" (click)="cargarProduto()" >
+                <option  *ngFor="let sucursal of nombres " [value]="sucursal"  >{{sucursal}}</option>
+            </select>
+            <label >Seleccione el producto</label>
+            <select formControlName="idProducto" (click)="cantidadStock()" >
+                <option *ngFor="let producto of productoLista " [value]="producto.codigo_producto" >{{producto.codigo_producto+"-"+producto.nombre_producto+" Stock :"+producto.cantidad_producto}}</option>
+            </select>
+            <label >Cantidad Existente : {{cantidadDisp}}</label>
+            <label >Cantidad Solicitada</label>
+			<input type="number" formControlName="cantidad" placeholder="Cantidad" >
+			<button type="submit" [disabled]="nuevoEmpForm.invalid" >Solicitar</button>
+		</form>
+	</div>
+</body>
+
